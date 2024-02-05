@@ -1,11 +1,19 @@
 import PropTypes from 'prop-types'
 
 function ArtisansListItem ({ artisan }) {
-  const { name, description } = artisan.attributes
+  console.log(artisan)
+  const { name, description, profilePicture } = artisan.attributes
+  const imgUrl = 'http://localhost:1337' + profilePicture?.data?.attributes?.url
   return (
-    <div>
-      <h3>{name}</h3>
-      <p>{description}</p>
+    <div className='card'>
+      <img
+        src={imgUrl}
+        className='profile-picture'
+      />
+      <div className='card-body'>
+        <h3>{name}</h3>
+        <p>{description}</p>
+      </div>
     </div>
   )
 }

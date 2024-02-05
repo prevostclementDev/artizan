@@ -376,6 +376,7 @@ export interface ApiArtisanArtisan extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     description: Attribute.RichText;
+    profilePicture: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

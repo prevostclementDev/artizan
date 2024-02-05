@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     // On récupère les données
     const getData = async () => {
-      const response = await fetch('http://localhost:1337/api/artisans')
+      const response = await fetch('http://localhost:1337/api/artisans?populate=*')
       const responseData = await response.json()
       setArtisans(responseData.data)
     }
