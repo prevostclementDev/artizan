@@ -5,6 +5,7 @@ function Header () {
     <header className='main'>
       <nav>
         <a href='/' >Accueil</a>
+        <a href='/artisans' >Artisans</a>
         <a href='/about' >About</a>
         <a href='/services'>Services</a>
         <a href='/contact'>Contact</a>
