@@ -2,8 +2,8 @@ import PropTypes from 'prop-types'
 import ProductsListItem from './ProductsListItem'
 import './ProductsList.css'
 /**
- * 
- * @param {Array} products 
+ *
+ * @param {Array} products
  * @returns {React.Component} ProductList
  */
 function ProductsList ({ products }) {
@@ -16,7 +16,7 @@ function ProductsList ({ products }) {
         ))
       }
     </div>
-  ) 
+  )
 }
 
 ProductsList.propTypes = {

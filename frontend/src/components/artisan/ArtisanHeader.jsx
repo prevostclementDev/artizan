@@ -3,12 +3,12 @@ import './Artisan.css'
 
 // { attributes } = props.attributes
 function ArtisanHeader ({ attributes }) {
-  const imgUrl = 
+  const imgUrl =
   'http://localhost:1337' + attributes.profilePicture?.data?.attributes?.url
 
-  return ( 
+  return (
     <div className='artisan-header'>
-      <div className='left-side' >
+      <div className='left-side'>
         <img
           src={imgUrl}
           className='artisan-picture'

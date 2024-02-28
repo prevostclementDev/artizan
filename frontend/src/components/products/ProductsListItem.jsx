@@ -21,4 +21,4 @@ ProductsListItem.propTypes = {
   product: PropTypes.object.isRequired
 }
 
-export default ProductsListItem 
+export default ProductsListItem

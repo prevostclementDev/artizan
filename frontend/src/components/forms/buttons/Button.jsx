@@ -1,6 +1,6 @@
-import PropTypes from "prop-types"
+import PropTypes from 'prop-types'
 function Button ({ children, type = 'button', onClick }) {
-  return ( 
+  return (
     <button
       type={type}
       onClick={onClick}
@@ -15,6 +15,5 @@ Button.propTypes = {
   onClick: PropTypes.func,
   type: PropTypes.oneOf(['submit', 'reset', 'button'])
 }
-
 
 export default Button

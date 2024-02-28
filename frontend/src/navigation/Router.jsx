@@ -1,6 +1,6 @@
-import { 
+import {
   BrowserRouter,
-  Route, 
+  Route,
   Routes
 } from 'react-router-dom'
 
@@ -12,13 +12,15 @@ import Artisans from '../pages/Artisans'
 import Home from '../pages/Home'
 import Artisan from '../pages/Artisan'
 import Auth from '../pages/Auth'
+import Dashboard from '../pages/protected/Dashboard'
+import PrivateRoute from './PrivateRouteMiddleware'
 
 function Router () {
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='artisans'> 
+        <Route path='artisans'>
           <Route index element={<Artisans />} /> {/* Route <domaine>/artisans */}
           <Route path=':artisanSlug' element={<Artisan />} /> {/* Route <domaine>/artisans/<ID> */}
         </Route>
@@ -26,6 +28,9 @@ function Router () {
         <Route path='services' element={<Services />} />
         <Route path='contact' element={<Contact />} />
         <Route path='authentication' element={<Auth />} />
+        <Route path='dashboard' element={<PrivateRoute />}>
+          <Route index element={<Dashboard />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   )

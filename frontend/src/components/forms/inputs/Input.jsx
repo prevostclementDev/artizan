@@ -1,11 +1,19 @@
-import PropTypes from "prop-types"
+import PropTypes from 'prop-types'
 
-function Input ({ label, name, value, placeholder, onChange, error }) {
+function Input ({
+  label,
+  name,
+  value,
+  placeholder,
+  onChange,
+  error,
+  type = 'text'
+}) {
   return (
     <div style={{ gap: 0 }}>
       <label>
         {label}
-        <input name={name} value={value} onChange={onChange} placeholder={placeholder} />
+        <input type={type} name={name} value={value} onChange={onChange} placeholder={placeholder} />
       </label>
       {
         error && <p style={{ color: 'red' }}>{error}</p>
@@ -20,7 +28,8 @@ Input.propTypes = {
   value: PropTypes.string,
   placeholder: PropTypes.string,
   onChange: PropTypes.func,
-  error: PropTypes.string
+  error: PropTypes.string,
+  type: PropTypes.string
 }
 
 export default Input
