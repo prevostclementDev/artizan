@@ -11,6 +11,7 @@ import Services from '../pages/Services'
 import Artisans from '../pages/Artisans'
 import Home from '../pages/Home'
 import Artisan from '../pages/Artisan'
+import Auth from '../pages/Auth'
 
 function Router () {
   return (
@@ -22,8 +23,9 @@ function Router () {
           <Route path=':artisanSlug' element={<Artisan />} /> {/* Route <domaine>/artisans/<ID> */}
         </Route>
         <Route path='about' element={<About />} />
-        <Route path='contact' element={<Contact />} />
         <Route path='services' element={<Services />} />
+        <Route path='contact' element={<Contact />} />
+        <Route path='authentication' element={<Auth />} />
       </Routes>
     </BrowserRouter>
   )
