@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Input from './inputs/Input'
-import Button from './buttons/Button'
-import './Form.css'
 import { useAuth } from '../../contexts/authContext'
+import { Button, Input } from '@nextui-org/react'
 
 function LoginForm () {
   const [formData, setFormData] = useState({
@@ -48,7 +46,7 @@ function LoginForm () {
         type='password'
         name='password'
         label='Mot de passe : '
-        placeholder=''
+        placeholder='*********'
         value={formData.password}
         onChange={handleChange}
       />

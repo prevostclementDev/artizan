@@ -1,3 +1,4 @@
+import { NextUIProvider } from '@nextui-org/react'
 import './App.css'
 import Header from './components/header/Header'
 import { AuthProvider } from './contexts/authContext.jsx'
@@ -8,11 +9,13 @@ import 'react-toastify/dist/ReactToastify.css'
 function App () {
   return (
     <>
-      <AuthProvider>
-        <Header />
-        <Router />
-        <ToastContainer />
-      </AuthProvider>
+      <NextUIProvider>
+        <AuthProvider>
+          <Header />
+          <Router />
+          <ToastContainer />
+        </AuthProvider>
+      </NextUIProvider>
     </>
   )
 }
