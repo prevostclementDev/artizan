@@ -11,7 +11,7 @@ function LoginForm () {
 
   const navigate = useNavigate()
 
-  const { state: { user, jwt, error }, login } = useAuth()
+  const { state: { user, jwt, error, loading }, login } = useAuth()
 
   useEffect(() => {
     if (user && jwt) {
@@ -32,7 +32,7 @@ function LoginForm () {
   }
 
   return (
-    <form className='form-container' onSubmit={handleSubmit}>
+    <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
       <h2>SE CONNECTER</h2>
       <Input
         type='email'
@@ -54,7 +54,9 @@ function LoginForm () {
         error && <p style={{ color: 'red' }}>{error}</p>
       }
       <Button
+        isLoading={loading}
         type='submit'
+        color='primary'
       >
         Se connecter
       </Button>

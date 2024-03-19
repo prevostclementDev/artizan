@@ -2,7 +2,6 @@ import { useState } from 'react'
 import Button from './buttons/Button'
 import Input from './inputs/Input'
 
-import './Form.css'
 import { validateRegisterForm } from '../../services/formAuthValidation'
 import { toast } from 'react-toastify'
 
