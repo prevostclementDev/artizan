@@ -17,7 +17,7 @@ function Artisan () {
   if (error || productsError) return <pre>{JSON.stringify(error || productsError, null, 2)}</pre>
 
   return response && (
-    <>
+    <div className='container mx-auto flex flex-col gap-8'>
       <ArtisanHeader attributes={response[0]?.attributes} />
       {
         products
@@ -26,7 +26,7 @@ function Artisan () {
             )
           : <p>Aucun produit trouvé</p>
       }
-    </>
+    </div>
   )
 }
 

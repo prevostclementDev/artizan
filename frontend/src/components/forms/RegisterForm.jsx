@@ -1,9 +1,8 @@
 import { useState } from 'react'
-import Button from './buttons/Button'
-import Input from './inputs/Input'
 
 import { validateRegisterForm } from '../../services/formAuthValidation'
 import { toast } from 'react-toastify'
+import { Button, Input } from '@nextui-org/react'
 
 function RegisterForm () {
   // Version simple
@@ -85,6 +84,7 @@ function RegisterForm () {
       />
       <Button
         type='submit'
+        color='primary'
       >
         S'enregistrer
       </Button>

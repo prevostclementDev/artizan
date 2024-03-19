@@ -1,4 +1,4 @@
-import Button from '../forms/buttons/Button'
+import { Button } from '@nextui-org/react'
 import './Header.css'
 
 function Header () {

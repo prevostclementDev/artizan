@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import './Artisan.css'
 
 // { attributes } = props.attributes
 function ArtisanHeader ({ attributes }) {
@@ -7,15 +6,15 @@ function ArtisanHeader ({ attributes }) {
   process.env.REACT_APP_IMAGES_URL + attributes.profilePicture?.data?.attributes?.url
 
   return (
-    <div className='artisan-header'>
-      <div className='left-side'>
+    <div className='flex flex-row gap-4 justify-center'>
+      <div className='flex flex-col'>
         <img
           src={imgUrl}
-          className='artisan-picture'
+          className='rounded-lg'
         />
       </div>
-      <div className='right-side'>
-        <h1>{attributes.name}</h1>
+      <div className='flex flex-col text-left gap-6 pt-2'>
+        <h1 className='font-bold text-4xl'>{attributes.name}</h1>
         <p>{attributes.description}</p>
       </div>
     </div>

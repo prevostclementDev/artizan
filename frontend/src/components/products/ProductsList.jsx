@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import ProductsListItem from './ProductsListItem'
-import './ProductsList.css'
 /**
  *
  * @param {Array} products
@@ -9,7 +8,7 @@ import './ProductsList.css'
 function ProductsList ({ products }) {
   if (!products || products.length < 1) return 'No data'
   return (
-    <div className='list'>
+    <div className='flex flex-row gap-4'>
       {
         products.map(product => (
           <ProductsListItem key={product.id} product={product} />
