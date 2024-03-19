@@ -1,5 +1,4 @@
 import { NextUIProvider } from '@nextui-org/react'
-import './App.css'
 import Header from './components/header/Header'
 import { AuthProvider } from './contexts/authContext.jsx'
 import Router from './navigation/Router.jsx'

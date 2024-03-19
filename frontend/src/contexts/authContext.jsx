@@ -17,6 +17,7 @@ const initialState = {
   jwt: null,
   user: null,
   loading: false,
+  isLoggedIn: false,
   error: null
 }
 
@@ -31,6 +32,7 @@ const authReducer = (prevState, action) => {
       return {
         jwt: action.data.jwt,
         user: action.data.user,
+        isLoggedIn: true,
         loading: false,
         error: null
       }
@@ -39,6 +41,7 @@ const authReducer = (prevState, action) => {
         jwt: null,
         user: null,
         loading: false,
+        isLoggedIn: false,
         error: action.data.error
       }
     case actionTypes.LOADING:
@@ -81,6 +84,7 @@ const authFactory = (dispatch) => ({
   logout: () => {
     dispatch({ type: actionTypes.LOGOUT })
   }
+
 })
 
 const AuthProvider = ({ children }) => {
