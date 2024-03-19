@@ -8,7 +8,7 @@ import { useAuth } from '../../contexts/authContext'
 function LoginForm () {
   const [formData, setFormData] = useState({
     identifier: 'jeanmich@mail.com',
-    password: 'jeanmich1'
+    password: 'jeanmich'
   })
 
   const navigate = useNavigate()
@@ -53,7 +53,7 @@ function LoginForm () {
         onChange={handleChange}
       />
       {
-        error && <p style={{ color: 'red' }}>{JSON.stringify(error)}</p>
+        error && <p style={{ color: 'red' }}>{error}</p>
       }
       <Button
         type='submit'
