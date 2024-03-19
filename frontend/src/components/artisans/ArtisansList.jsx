@@ -8,9 +8,9 @@ function ArtisansList ({ artisans }) {
     return 'No data'
   }
   return (
-    <div className='list-container'>
-      <h2>Artisans List</h2>
-      <div className='list'>
+    <div className='flex flex-col'>
+      <h2 className='text-4xl py-6'>Artisans List</h2>
+      <div className='flex flex-row flex-wrap gap-4'>
         {
           artisans.map(artisan => (
             <ArtisansListItem key={artisan.id} artisan={artisan} />
