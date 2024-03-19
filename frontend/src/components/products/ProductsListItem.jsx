@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 
 function ProductsListItem ({ product }) {
   const { name, description, images } = product.attributes
-  const imgUrl = 'http://localhost:1337' + images?.data[0]?.attributes?.url
+  const imgUrl = process.env.REACT_APP_IMAGES_URL + images?.data[0]?.attributes?.url
   return (
     <div className='card'>
       <img

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 
 function ArtisansListItem ({ artisan }) {
   const { name, description, slug, profilePicture } = artisan.attributes
-  const imgUrl = 'http://localhost:1337' + profilePicture?.data?.attributes?.url
+  const imgUrl = process.env.REACT_APP_IMAGES_URL + profilePicture?.data?.attributes?.url
   return (
     <a className='card' href={`/artisans/${slug}`}>
       <img

@@ -4,7 +4,7 @@ import './Artisan.css'
 // { attributes } = props.attributes
 function ArtisanHeader ({ attributes }) {
   const imgUrl =
-  'http://localhost:1337' + attributes.profilePicture?.data?.attributes?.url
+  process.env.REACT_APP_IMAGES_URL + attributes.profilePicture?.data?.attributes?.url
 
   return (
     <div className='artisan-header'>

@@ -10,7 +10,7 @@ const useLogin = () => {
     try {
       setIsLoading(true)
       const _response = await fetch(
-        'http://localhost:1337/api/auth/local',
+        `${process.env.REACT_APP_API_URL}/auth/local`,
         {
           method: 'POST',
           headers: {

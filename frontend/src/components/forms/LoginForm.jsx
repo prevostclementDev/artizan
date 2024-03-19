@@ -7,8 +7,8 @@ import { useLogin } from '../../hooks/Auth'
 
 function LoginForm () {
   const [formData, setFormData] = useState({
-    identifier: 'jeanmich@mail.com',
-    password: 'password1'
+    identifier: '',
+    password: ''
   })
 
   const navigate = useNavigate()

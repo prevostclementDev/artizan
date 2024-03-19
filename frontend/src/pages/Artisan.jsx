@@ -7,10 +7,10 @@ function Artisan () {
   const { artisanSlug } = useParams()
 
   const { response, error, loading } =
-  useFetch(`http://localhost:1337/api/artisans?filters[slug][$eq]=${artisanSlug}&populate=*`)
+  useFetch(`${process.env.REACT_APP_API_URL}/artisans?filters[slug][$eq]=${artisanSlug}&populate=*`)
 
   const { response: products, error: productsError, loading: productsLoading } =
-  useFetch(`http://localhost:1337/api/products?filters[artisan][slug][$eq]=${artisanSlug}&populate=*`)
+  useFetch(`${process.env.REACT_APP_API_URL}/products?filters[artisan][slug][$eq]=${artisanSlug}&populate=*`)
 
   if (loading || productsLoading) return <h1>Chargement...</h1>
 
