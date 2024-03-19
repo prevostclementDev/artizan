@@ -3,23 +3,23 @@ import { useNavigate } from 'react-router-dom'
 import Input from './inputs/Input'
 import Button from './buttons/Button'
 import './Form.css'
-import { useLogin } from '../../hooks/Auth'
+import { useAuth } from '../../contexts/authContext'
 
 function LoginForm () {
   const [formData, setFormData] = useState({
-    identifier: '',
-    password: ''
+    identifier: 'jeanmich@mail.com',
+    password: 'jeanmich1'
   })
 
   const navigate = useNavigate()
 
-  const { response, error, login } = useLogin()
+  const { state: { user, jwt, error }, login } = useAuth()
 
   useEffect(() => {
-    if (response && response.jwt) {
+    if (user && jwt) {
       navigate('/dashboard')
     }
-  }, [response])
+  }, [user, jwt])
 
   const handleChange = (event) => {
     setFormData({
@@ -53,7 +53,7 @@ function LoginForm () {
         onChange={handleChange}
       />
       {
-        error && <p style={{ color: 'red' }}>{error}</p>
+        error && <p style={{ color: 'red' }}>{JSON.stringify(error)}</p>
       }
       <Button
         type='submit'
