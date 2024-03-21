@@ -6,7 +6,7 @@ function ArtisanHeader ({ attributes }) {
   process.env.REACT_APP_IMAGES_URL + attributes.profilePicture?.data?.attributes?.url
 
   return (
-    <div className='flex flex-row gap-4 justify-center'>
+    <div className='flex flex-col lg:flex-row gap-4 py-8 px-16 justify-center'>
       <div className='flex flex-col'>
         <img
           src={imgUrl}
