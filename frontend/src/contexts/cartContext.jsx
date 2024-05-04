@@ -73,6 +73,8 @@ const cartFactory = (dispatch, state) => ({
         id : id,
       } })
 
+      toast.success('Quantité augmentée pour : '+name)
+
     } else {
 
       dispatch({ type : actionTypes.ADD_ITEM, data: {
@@ -80,6 +82,8 @@ const cartFactory = (dispatch, state) => ({
           name: name,
           price : price,
       } })
+
+      toast.success('Element ajouté avec success')
 
     }
 
@@ -92,6 +96,8 @@ const cartFactory = (dispatch, state) => ({
     dispatch({ type : actionTypes.REMOVE_ITEM, data: {
         newState : newState
       } })
+
+    toast.success('Element supprimé avec success')
 
   }
 
