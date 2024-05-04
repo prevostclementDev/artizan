@@ -6,11 +6,22 @@ const useFetch = (endpoint) => {
   const [error, setError] = useState()
   const [isLoading, setIsLoading] = useState(false)
 
+  const headers = {
+    'Content-Type': 'application/json',
+    Accept: 'application/json'
+  }
+
+  const axiosInstance = axios.create({
+    baseURL: process.env.REACT_APP_API_URL,
+    timeout: 10000,
+    headers: headers
+  })
+
   useEffect(() => {
     const getData = async () => {
       setIsLoading(true)
       try {
-        const response = await axios.get(process.env.REACT_APP_API_URL + endpoint)
+        const response = await axiosInstance.get(endpoint)
         console.log(response)
         setResponse(response.data.data)
         setIsLoading(false)

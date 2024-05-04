@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useReducer } from 'react'
-import { loginApi } from '../services/api'
+import { loginApi, registerApi } from '../services/api'
 import { toast } from 'react-toastify'
 
 const AuthContext = createContext()
@@ -10,7 +10,8 @@ const actionTypes = {
   LOGOUT: 'LOGOUT', // Déconnecté
   LOADING: 'LOADING', // Chargement
   ERROR: 'ERROR', // Erreur
-  RESET: 'RESET' // Réinitialisation de l'état
+  RESET: 'RESET', // Réinitialisation de l'état
+  RESET_ERROR_AND_LOADING : 'RESET_ERROR_AND_LOADING' // reset les erreurs et le chargement
 }
 
 const initialState = {
@@ -52,12 +53,18 @@ const authReducer = (prevState, action) => {
     case actionTypes.RESET:
     case actionTypes.LOGOUT:
       return initialState
+    case actionTypes.RESET_ERROR_AND_LOADING:
+      return {
+        ...prevState,
+        loading: initialState.loading,
+        error :  initialState.error
+      }
     default:
       throw new Error(`Unhandled action type : ${action.type}`)
   }
 }
 
-const authFactory = (dispatch) => ({
+const authFactory = (dispatch, state) => ({
   // credentials = { identifier, password }
   login: async (credentials) => {
     dispatch({ type: actionTypes.LOADING })
@@ -81,8 +88,42 @@ const authFactory = (dispatch) => ({
       })
     }
   },
+
+  register : async (credentials) => {
+    dispatch({ type: actionTypes.LOADING })
+    try {
+      const result = await registerApi(credentials)
+      dispatch({
+        type: actionTypes.REGISTER,
+        data: {
+          user: result.user,
+          jwt: result.jwt
+        }
+      })
+    } catch (error) {
+      toast.error('Une erreur est survenue pendant l\'inscription')
+      dispatch({
+        type: actionTypes.ERROR,
+        data: {
+          error: 'Une erreur est survenue pendant l\'inscription'
+        }
+      })
+    }
+  },
+
   logout: () => {
     dispatch({ type: actionTypes.LOGOUT })
+  },
+
+  resetErrorAndLoading: () => {
+    dispatch({ type: actionTypes.RESET_ERROR_AND_LOADING })
+  },
+
+  setUserData: (user) => {
+    dispatch({ type: actionTypes.LOGIN, data: {
+        user: user,
+        jwt: state.jwt
+      } })
   }
 
 })
@@ -98,7 +139,7 @@ const AuthProvider = ({ children }) => {
   }, [state])
 
   return (
-    <AuthContext.Provider value={{ state, ...authFactory(dispatch) }}>
+    <AuthContext.Provider value={{ state, ...authFactory(dispatch, state) }}>
       {children}
     </AuthContext.Provider>
   )

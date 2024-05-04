@@ -5,8 +5,8 @@ import { Button, Input } from '@nextui-org/react'
 
 function LoginForm () {
   const [formData, setFormData] = useState({
-    identifier: 'jeanmich@mail.com',
-    password: 'jeanmich'
+    identifier: 'clement@clement.fr',
+    password: '123456'
   })
 
   const navigate = useNavigate()
@@ -33,7 +33,7 @@ function LoginForm () {
 
   return (
     <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
-      <h2>SE CONNECTER</h2>
+      <h2 className='text-3xl font-semibold'>Se connecter</h2>
       <Input
         type='email'
         name='identifier'
@@ -57,6 +57,7 @@ function LoginForm () {
         isLoading={loading}
         type='submit'
         color='primary'
+        className='w-fit'
       >
         Se connecter
       </Button>

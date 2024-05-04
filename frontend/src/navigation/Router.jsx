@@ -14,6 +14,7 @@ import Artisan from '../pages/Artisan'
 import Auth from '../pages/Auth'
 import Dashboard from '../pages/protected/Dashboard'
 import PrivateRoute from './PrivateRouteMiddleware'
+import Cart from "../pages/Cart.jsx";
 
 function Router () {
   return (
@@ -25,6 +26,7 @@ function Router () {
           <Route path=':artisanSlug' element={<Artisan />} /> {/* Route <domaine>/artisans/<ID> */}
         </Route>
         <Route path='about' element={<About />} />
+        <Route path='cart' element={<Cart />} />
         <Route path='services' element={<Services />} />
         <Route path='contact' element={<Contact />} />
         <Route path='authentication' element={<Auth />} />
